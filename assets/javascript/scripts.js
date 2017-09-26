@@ -11,8 +11,10 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var provider = new firebase.auth.GoogleAuthProvider();
 var searchArray = [];
+$(document).ready(function(){
+	firebase.auth().signInWithRedirect(provider);
+});
 
-firebase.auth().signInWithRedirect(provider);
 
 // firebase.auth().getRedirectResult().then(function(result) {
 //   if (result.credential) {
