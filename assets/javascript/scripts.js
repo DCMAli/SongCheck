@@ -9,7 +9,26 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+var provider = new firebase.auth.GoogleAuthProvider();
 var searchArray = [];
+
+firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  alert(errorCode);
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
 
 // On submit, take user input and push to Firebase
 $("#submit-button").on("click", function(event) {
@@ -25,7 +44,6 @@ $("#submit-button").on("click", function(event) {
 // Retrieve changed Firebase data and show changes in app
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 	var searchTerm = childSnapshot.val().searchItem;
-
 	var historyItem = $("<tr><td>" + searchTerm + "</td></tr>");
 	searchArray.push(searchTerm);
 	console.log(searchArray);
