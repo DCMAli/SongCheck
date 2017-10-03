@@ -31,3 +31,22 @@
 
 }
 
+#giphyiframe {
+	overflow: scroll;
+	height: 360px;
+	position: absolute;
+	top: 50%;
+	left: 60%;
+}
+
+#giphyiframe iframe {
+	height: 300px;
+	width: 640px;
+}
+
+#youriframe {
+	height: 360px;
+	width: 640px;
+	position: absolute;
+	top:50%;
+}

@@ -9,12 +9,12 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 var provider = new firebase.auth.GoogleAuthProvider();
-var searchArray = [];
+var searchArray = ["The Killers", "The Beetles", "Usher"];
 // Sabrina's function to get youtube data
 function youTube() {
         var base_url = 'http://www.youtube.com/embed?listType=search&list=';
         console.log(base_url);
-        var search_field = document.getElementById('search-input').value;
+        var search_field = document.getElementById("search-input").value;
         console.log(search_field);
         var target_url = base_url + search_field;
         var ifr = document.getElementById('youriframe');
@@ -25,7 +25,7 @@ function youTube() {
 function giphy() {
         // Grabbing and storing the data-animal property value from the button
         // var animal = $(this).attr("data-animal");
-        var search_field = document.getElementById('search-input').value;
+        var search_field = document.getElementById("search-input").value;
         search_field.concat();
         console.log(search_field);
         // Constructing a queryURL using the giphy API search input
